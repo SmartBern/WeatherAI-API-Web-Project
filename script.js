@@ -84,10 +84,10 @@ async function fetchWeather(lat, lon) {
   document.getElementById('content').innerHTML =
     '<div class="status">Fetching weather data…</div>';
 
-  /* Make calls to localhost:4001/api/weather instead of api.weather-ai.co directly (fixes CORS) */
+  /* Make calls to localhost:4001/api/weather or to the Render backend */
   try {
     const weatherURL =
-      `http://localhost:4001/api/weather` +
+      `/api/weather` +
       `?lat=${encodeURIComponent(latitude)}` +
       `&lon=${encodeURIComponent(longitude)}` +
       `&days=7&ai=true&units=${units}`;
