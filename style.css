@@ -29,6 +29,7 @@
       background-blend-mode: overlay;
       background-size: 150px 150px, auto;
       background-attachment: fixed;
+      overscroll-behavior-y: none;
     }
 
     .app {
