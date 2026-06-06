@@ -4,6 +4,10 @@
       padding: 0;
     }
 
+    html {
+      background-color: #3b4252;
+    }
+
     /* CSS Variables */
     :root {
       --card-bg: rgba(255, 255, 255, 0.12);
@@ -29,7 +33,6 @@
       background-blend-mode: overlay;
       background-size: 150px 150px, auto;
       background-attachment: fixed;
-      overscroll-behavior-y: none;
     }
 
     .app {
@@ -227,6 +230,9 @@
       font-weight: 300;
       line-height: 1;
       letter-spacing: -2px;
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
     }
 
     .temp-unit {
@@ -286,7 +292,7 @@
       font-weight: 500;
     }
 
-    /* Meta Grid (Humidity, Wind, UV, Visibility) */
+    /* Meta Grid (Humidity, Wind Speed, Wind Direction, UV, etc.) */
     .meta-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
