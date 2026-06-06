@@ -5,7 +5,7 @@
 ## Overview
 
 A simple web application built with HTML, CSS, and JavaScript
-that fetches real-time weather data from the WeatherAI API.
+that fetches real-time, hourly-based weather data from the WeatherAI API.
 
 ## Features
 
@@ -36,8 +36,8 @@ that fetches real-time weather data from the WeatherAI API.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/weatherai-web.git
-cd weatherai-web
+git clone https://github.com/SmartBern/WeatherAI-API-Web-Project.git
+cd weatherai-api-web-project
 ```
 
 ```bash
@@ -47,7 +47,7 @@ npm install
 
 Open `.env`and add your API key
 ```bash
-# 3. Add your API key
+# 3. Add your API key (optional)
 WAI_API_KEY = your_weatherai_api_key_here
 ```
 
@@ -56,7 +56,7 @@ WAI_API_KEY = your_weatherai_api_key_here
 
 ```bash
 # 4. Start the server
-node server.js
+npm start
 ```
 Launch your browser and visit: http://localhost:4001
 
@@ -70,7 +70,7 @@ project-root/
 ├── server.js         # Backend (Node/Express)
 ├── package.json      # Dependencies and scripts
 ├── package-lock.json # Locked dependency versions
-├── .env              # Environment variables (not committed)
+├── .env              # Environment variables (not committed, optional)
 └── README.md
 
 
