@@ -1,0 +1,375 @@
+  * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* CSS Variables */
+    :root {
+      --card-bg: rgba(255, 255, 255, 0.12);
+      --card-border: rgba(255, 255, 255, 0.22);
+      --text-bright: #ffffff;
+      --text-muted: rgba(255, 255, 255, 0.72);
+      --text-dim: rgba(255, 255, 255, 0.48);
+      --input-bg: rgba(255, 255, 255, 0.14);
+      --input-border: rgba(255, 255, 255, 0.28);
+      --btn-bg: #ffffff;
+      --btn-text: #0369a1;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      padding: 24px 16px 40px;
+      color: var(--text-bright);
+      
+      background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+        linear-gradient(135deg, #0b1329 0%, #1c2541 50%, #3b4252 100%);
+      background-blend-mode: overlay;
+      background-size: 150px 150px, auto;
+      background-attachment: fixed;
+    }
+
+    .app {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+      margin-top: 40px;
+    }
+
+    .header h1 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .header p {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .key-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .key-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .key-row input {
+      flex: 1;
+      min-width: 220px;
+      padding: 10px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .key-row input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .key-row input:focus {
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .search-row input {
+      flex: 1;
+      min-width: 150px;
+      padding: 10px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-row input::placeholder {
+      color: var(--text-dim);
+    }
+
+    .search-row input:focus {
+      border-color: rgba(255, 255, 255, 0.55);
+    }
+
+    .search-row select {
+      padding: 10px 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      outline: none;
+      cursor: pointer;
+      appearance: none;
+      min-width: 120px;
+    }
+
+    .search-row select option {
+      color: #0369a1;
+      background: #e0f2fe;
+    }
+
+    .search-row button {
+      padding: 10px 22px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: none;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.18s, transform 0.12s;
+      white-space: nowrap;
+    }
+
+    .search-row button:hover {
+      opacity: 0.88;
+    }
+
+    .search-row button:active {
+      transform: scale(0.97);
+    }
+
+    .geo-btn {
+      padding: 10px 16px;
+      background: var(--input-bg);
+      color: #ffffff;
+      border: 1px solid var(--input-border);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      cursor: pointer;
+      transition: opacity 0.18s;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .geo-btn:hover {
+      opacity: 0.8;
+    }
+
+    .geo-btn svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px 22px;
+      backdrop-filter: blur(12px);
+      margin-bottom: 16px;
+    }
+
+    /* Current Weather Card */
+    .main-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+    }
+
+    .temp-block {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .temp-big {
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .temp-unit {
+      font-size: 28px;
+      font-weight: 300;
+      vertical-align: super;
+    }
+
+    .condition {
+      font-size: 17px;
+      font-weight: 500;
+      margin-top: 4px;
+      text-transform: capitalize;
+    }
+
+    .location-name {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 3px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .feels-like {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+
+    /* Timezone & Local Time */
+    .tz-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--card-border);
+      flex-wrap: wrap;
+    }
+
+    .tz-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .tz-item svg {
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    .tz-item strong {
+      color: var(--text-bright);
+      font-weight: 500;
+    }
+
+    /* Meta Grid (Humidity, Wind, UV, Visibility) */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      flex: 1;
+      min-width: 180px;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--text-dim);
+    }
+
+    .meta-val {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* Forecast Section */
+    .forecast-section h3 {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .forecast-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 10px;
+    }
+
+    .forecast-day {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .f-day {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .f-icon  { font-size: 20px; margin: 4px 0; }
+    .f-max   { font-size: 15px; font-weight: 600; }
+    .f-min   { font-size: 12px; color: var(--text-muted); }
+    .f-rain  { font-size: 11px; color: #93d6fd; margin-top: 2px; }
+
+    /* Status & Error States */
+    .status {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .status-text:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+    .error-msg {
+      background: rgba(239, 68, 68, 0.18);
+      border: 1px solid rgba(239, 68, 68, 0.35);
+      border-radius: 12px;
+      padding: 14px 18px;
+      font-size: 14px;
+      color: #fca5a5;
+      margin-bottom: 16px;
+    }
