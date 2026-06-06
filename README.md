@@ -37,7 +37,7 @@ that fetches real-time, hourly-based weather data from the WeatherAI API.
 ```bash
 # 1. Clone the repository
 git clone https://github.com/SmartBern/WeatherAI-API-Web-Project.git
-cd weatherai-api-web-project
+cd WeatherAI-API-Web-Project
 ```
 
 ```bash
@@ -58,7 +58,8 @@ WAI_API_KEY = your_weatherai_api_key_here
 # 4. Start the server
 npm start
 ```
-Launch your browser and visit: http://localhost:4001
+WeatherAI proxy running at: http://localhost:4001
+Open http://localhost:4001 in your browser
 
 
 ## Project Structure
