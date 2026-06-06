@@ -77,3 +77,6 @@ project-root/
 ## Author
 Oluwaseun Lawal
 
+## License
+MIT
+
