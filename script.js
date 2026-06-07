@@ -253,7 +253,7 @@ function renderWeather(data, units, resolvedLocation = '') {
 
       <div class="main-card">
         <div class="temp-block">
-          <div class="temp-big">${weatherIcon(cond)}${temp}<span class="temp-unit">${sym}</span></div>
+          <div class="temp-big"><span class="temp-icon">${weatherIcon(cond)}</span>${temp}<span class="temp-unit">${sym}</span></div>
 
           ${locLabel ? `<div class="location-name">${pinSVG} ${locLabel}</div>` : ''}
           ${feels ? `<div class="feels-like">Feels like ${feels}${sym}</div>` : ''}

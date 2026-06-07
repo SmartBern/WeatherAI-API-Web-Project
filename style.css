@@ -231,8 +231,14 @@
       line-height: 1;
       letter-spacing: -2px;
       display: flex;
-      align-items: baseline;
+      align-items: center;
       gap: 2px;
+    }
+
+    .temp-icon {
+      font-size: 48px;
+      line-height: 1;
+      margin-right: -6px;
     }
 
     .temp-unit {
